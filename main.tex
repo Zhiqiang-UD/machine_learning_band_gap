@@ -1,3 +1,6 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.1 distribution.
 %   Version 4.1r of REVTeX, August 2010
 %
 %   Copyright (c) 2009, 2010 The American Physical Society.
@@ -15,11 +18,12 @@
 %  3)  latex apssamp.tex
 %  4)  latex apssamp.tex
 %
-
-\documentclass[twocolumn,
+\documentclass[%
+reprint,
 superscriptaddress,
+citeautoscript,
 %groupedaddress,
-%unsortedaddress,2
+%unsortedaddress,
 %runinaddress,
 %frontmatterverbose, 
 %preprint,
@@ -28,19 +32,20 @@ superscriptaddress,
 %nobibnotes,
 %bibnotes,
  amsmath,amssymb,
- aps, citeautoscript,
+ aps,
+ prl,
 %pra,
-prb,
+%prb,
 %rmp,
 %prstab,
 %prstper,
-%floatfix,
+floatfix,
 ]{revtex4-1}
 
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-
+\usepackage{color,soul} % highlight text
 %\usepackage{hyperref}% add hypertext capabilities
 %\usepackage[mathlines]{lineno}% Enable numbering of text and display math
 %\linenumbers\relax % Commence numbering lines
@@ -54,6 +59,7 @@ prb,
 %]{geometry}
 
 \begin{document}
+
 
 \preprint{APS/123-QED}
 
@@ -82,7 +88,7 @@ prb,
              %  but any date may be explicitly specified
 \begin{abstract}
 
-Machine learning has been recently used for novel perovskite designs owing to the availability of a large amount of perovskite formability data. Trustworthy results should be based on the valid and reliable data that can reveal the nature of materials as much as possible. Machine learning with a multiple models approach accurately predict the HSE06 band gap correction to the PBEsol level of pervoskite oxide family compounds by -0.145 eV, by quantitatively analyzing the valence band maximum (VBM) and conduction band minimum (CBM) offset. Not only does this resulting tool provide the ability to accurately predict the HSE06 band gap based on the PBEsol results but also the speed of the prediction based only on the cubic structure will make this a great resource to screen functional pervoskite materials. And this design represents a powerful database and tool paves a way for mapping the vast materials landscape and accelerating discovery. 
+Machine learning has been recently used for novel perovskite designs owing to the availability of a large amount of applications because of the structure flexibility with multiple A-B-X combination. A tremendous amount of potential element combinations can be considered within perovskite structures, suggesting that there should still be hidden and undiscovered perovskite materials useful for solar light capturing. However, trustworthy results should be based on the valid and reliable data that can reveal the nature of materials as much as possible. We carefully generated the HSE and PBEsol datasets and it indicate that the valence band maximum (VBM) decreased 1 eV and conduction band minimum (CBM) increased 0.5 eV. We used machine learning with a multiple models approach accurately predict the HSE06 VBM, CBM and E$_{g}$ correction with accuracy of -0.145 eV, by quantitatively analyzing the valence band maximum (VBM) and conduction band minimum (CBM) offset. Not only does this resulting tool provide the ability to accurately predict the HSE06 band gap based on the PBEsol results but also the speed of the prediction based only on the cubic structure will make this a great resource to screen functional pervoskite materials. And this design represents a powerful database and tool paves a way for mapping the vast materials landscape and accelerating discovery. 
 
 
 %\begin{description}
@@ -105,11 +111,14 @@ Machine learning has been recently used for novel perovskite designs owing to th
 \begin{center}
 \includegraphics[width=2.6 in]{Figures/Fig1.eps}
 \end{center}
-\caption{ Crystal structures of garnet and perovskite prototypes.Green, blue and red spheres are atoms of A, B and X sites, respectively. a crystal structrure of $pm3^{bar}m$ cubic structure. b crystal structure of $I4_mmm$ tetragonal structure. c crystal structure of $Pnma$ orthohombic structure.}
+\caption{ Crystal structures of garnet and perovskite prototypes.Green, blue and red spheres are atoms of A, B and O sites, respectively. a crystal structrure of $Pm\bar{3}m$ cubic structure. b crystal structure of $I4_mmm$ tetragonal structure. c crystal structure of $Pnma$ orthohombic structure. d crystal structure of $R\bar{3}c$ Rhombohedral 
+}
 \label{fig1}
 \end{figure}
 
-Density functional theory (DFT)\cite{Kohn1964,Kohn1965}  is often used to predict crystal structure lattice parameters, within 1-2\% of the experimental values and the scalability of computations makes it possible to make predictions on thousands of materials.  However, there is a systematic under-estimation of the band gap, E$_g$, compared with the experimental values when employing standard exchange and correlation functionals such as the generalized gradient approximation as proposed by Perdew, Burke, and Ernzerhof (PBE).  Hybrid functionals  \cite{Heyd2003,Heyd2006} or the Green’s function quasi-particle GW methods \cite{Luoie1996,Kresse2006} improve accuracy, yet are much more expensive computationally, precluding their systematic use in searching over thousands of compounds. To accelerate the discovery and development of new functional materials, it is desirable to have an automating and scaling computational approach that predicts accurate values for band gaps at the speed or faster than DFT-PBE calculations. Over the last decade, ML has been applied to materials science problems in a variety of directions, such as prediction and classification of crystal structures\cite{Fischer2006,CARR2009339,Pilania2015,Yamashita2018} , development of interatomic potentials \cite{Hobday1999,Handley2010,Schneider2017} finding of optimal density functionals for density functional theory \cite{Wellendorff2012,Snyder2012,Brockherde2017,Pilania2013}, and building of predictive models of material properties\cite{Pilania2013,Lee2016,Pilania2016,Bart2017}. Instead of the conventional computational materials design, which derived materials properties according to physical law, for example, solving the Kohn-Sham equation, ML can learn the hidden rules based on a large data set and build a model to make corresponding predictions. 
+Density functional theory (DFT)\cite{Kohn1964,Kohn1965}  is often used to predict crystal structure lattice parameters, within 1-2\% of the experimental values and the scalability of computations makes it possible to make predictions on thousands of materials.  However, there is a systematic under-estimation of the band gap, E$_g$, compared with the experimental values when employing standard exchange and correlation functionals such as the generalized gradient approximation as proposed by Perdew, Burke, and Ernzerhof (PBE).  Hybrid functionals  \cite{Heyd2003,Heyd2006} or the Green’s function quasi-particle GW methods \cite{Luoie1996,Kresse2006} improve accuracy, yet are much more expensive computationally, precluding their systematic use in searching over thousands of compounds. To accelerate the discovery and development of new functional materials, it is desirable to have an automating and scaling computational approach that predicts accurate values for band gaps at the speed or faster than DFT-PBE calculations. 
+
+Over the last decade, ML has been applied to materials science problems in a variety of directions, such as prediction and classification of crystal structures\cite{Fischer2006,CARR2009339,Pilania2015,Yamashita2018} , development of interatomic potentials \cite{Hobday1999,Handley2010,Schneider2017} finding of optimal density functionals for density functional theory \cite{Wellendorff2012,Snyder2012,Brockherde2017,Pilania2013}, and building of predictive models of material properties\cite{Pilania2013,Lee2016,Pilania2016,Bart2017}. Instead of the conventional computational materials design, which derived materials properties according to physical law, for example, solving the Kohn-Sham equation, ML can learn the hidden rules based on a large data set and build a model to make corresponding predictions. 
 
 % The statistical learning has emerged as a promising tool for predicting the cohesive energy, lattice thermal conductivity, band gaps, free energy, and heat capacity within reasonable time.
 
@@ -123,9 +132,15 @@ Density functional theory (DFT)\cite{Kohn1964,Kohn1965}  is often used to predic
 \label{fig2}
 \end{figure*}
 
-Perovskite materials have garnered much attention due to having ideal band gaps for capturing solar light, leading to the design of photovoltaic systems \cite{Pilania2013,Lee2012}. A tremendous amount of potential element combinations can be considered within perovskite structures, suggesting that there should still be hidden and undiscovered perovskite materials useful for solar light capturing. So far, the main data for perovskite formability can be found in a few articles that summarized the existing experimental data and prevalent databases. High throughput first principle calculations have previously been used to screen for potential perovskite materials for solar light capturing\cite{Huo2018, Sun2015}, but such calculations are found to leave unexplored spaces of perovskite materials due to the limitation of heavy computational times. Machine learning and deep learning models are implemented in this project in order to uncover hidden trends and link to the PBE and HSE06 functional band gap of the perovskite materials. And it is able to reveal the descriptors determining the band gap within perovskite materials data, then rapid prediction of perovskite materials. 
+Perovskite materials have garnered much attention due to having ideal band gaps for capturing solar light, leading to the design of photovoltaic systems \cite{Pilania2013,Lee2012}. A tremendous amount of potential element combinations can be considered within perovskite structures, suggesting that there should still be hidden and undiscovered perovskite materials useful for solar light capturing. So far, the main data for perovskite formability can be found in a few articles that summarized the existing experimental data and prevalent databases. High throughput first principle calculations have previously been used to screen for potential perovskite materials for solar light capturing\cite{Huo2018, Sun2015}, but such calculations are found to leave unexplored spaces of perovskite materials due to the limitation of heavy computational times. 
 
-In this project we are developing a machine learning models for mapping DFT-PBE computed band gaps of perovskites into HSE06 band gaps, which agrees very well with experimental results.  This will enable us to provide high fidelity band gaps without a significant increase in computational cost.  To generate DFT based observables and reliable database, we are calculating DFT bandgaps via high-throughput approach and find out the band gap correction and band offset between two approximations. A data set comprising ~400 perovskite was generated by performing the full DFT relaxation and energy calculations on all allowed species on the A, B sites. Later on, we plan to extend this approach to explore the electronic structure of chalcogenides, and halides. 
+% This will enable us to provide high fidelity band gaps without a significant increase in computational cost.
+
+% Machine learning and deep learning models are implemented in this project in order to uncover hidden trends and link to the PBE and HSE06 functional band gap of the perovskite materials. And it is able to reveal the descriptors determining the band gap within perovskite materials data, then rapid prediction of perovskite materials. 
+
+In this project we developed a machine learning models for mapping DFT-PBE computed band gaps of perovskites into HSE06 band gaps, which agrees very well with experimental results. To generate DFT based observables and reliable database, we are calculating DFT bandgaps via high-throughput approach and find out the band gap correction and band offset between two approximations. 
+% A data set comprising 383 perovskite was generated by performing the full DFT relaxation and energy calculations on all allowed species on the A, B sites. 
+Machine learning models are implemented in this project in order to uncover hidden trends and link to the PBE and HSE06 functional band gap of the perovskite materials. And it reveals the descriptors determining the band gap within perovskite materials data with accuracy of 0.145 eV. Later on, we plan to extend this approach to explore the electronic structure of chalcogenides, and halides. 
 
 % Thus, trends and periodicities hidden within the data of 19000 perovskite materials are sought after and hidden perovskite materials for applications in capturing solar light are explored through the use of materials informatics.
 % Several research groups have demonstrated the benefits of automating and scaling computational property. For example, an overview of high-throughput band structure calculations by Curtarolo et al. [6] New materials for radiation detectors is suggested by screening about 22,000 materials by Hachmann, et al. [7]
@@ -157,9 +172,11 @@ The machine learning model is developed for the given band gap data set {X, y}, 
 
 The systematic underestimation of DFT with standard exchange and correlation functional such as LDA or PBE/PBEsol stems from the well-known discontinuity in the derivative of exchange and correlation functional as the number of electrons deviates from integers. Indeed, PBE deviates from the expected straight-line behavior between two integer charges following a convex curvature, referred to as self-interaction. This self-interaction leads to erroneous localization and tends to spread the charges across a system. Hartree-Fock, on the contrary, shows a concave behavior for many-electron systems, resulting in localization of charges. A hybrid exchange and correlation function , which mixes a fracction of PBE with a fraction of Hartree-Fock, produces the almost straight-line behavior, as desired. The band gaps calculated using hybrid funcitonals show excellent agreement with the experimental results. However, the hybrid functional quantitatively correction to the standard exchange and correlction functional (PBE/PBEsol LDA) is still unknown and we are aiming to find a hidden trend of the band gaps.
 
-In this project, perovskite oxides will be used in our analyze, and it will involve more materials later on. An attractive feature of perovskite class of materials with a formula of ABX$_{3}$, where X is  typically  oxygen, is  the  possibility  of  tailoring  their  band  gaps  by changing the elemental composition of the A, B, and/or X sites, as well as possible rotations and tilting of the BX6 octahedra as shown in Fig.~\ref{fig1} with perfect and distorted perovskite structure.  we provide a comprehensive study on 118 kinds of oxides (including oxide) perovskites ABO$_{3}$.We are filtering the perovskite space such that the selected A and B chosen to give semiconducting materials, i.e., valence(A)+valence(B)=6. (A = Li,Na, K, Rb, Cs, Cu, Ag, Au, Be, Mg, Ca, Sr, Ba, Pb, Zn, Cd, Sn, Sc,Y, La, Bi; B = P, As, Sb, V,  Nb, Ta, Si, Ge, Sn, Ti, Zr, Hf, Al, Ga, In, Tl; X = O). Considering the structural flexibility of perovskites, four possible crystal structures with crystal symmetry Pm3m, I4/mmm, P63/mmc and Pnma (needle-like) as shown in Fig.~\ref{fig1} are considered for each compound.
+In this project, perovskite oxides will be used in our analyze, and it will involve more materials later on. An attractive feature of perovskite class of materials with a formula of ABX$_{3}$, where X is  typically  oxygen, is  the  possibility  of  tailoring  their  band  gaps  by changing the elemental composition of the A, B, and/or X sites, as well as possible rotations and tilting of the BX6 octahedra as shown in Fig.~\ref{fig1} with perfect and distorted perovskite structure.  we provide a comprehensive study on 118 kinds of oxides (including oxide) perovskites ABO$_{3}$.We are filtering the perovskite space such that the selected A and B chosen to give semiconducting materials, i.e., valence(A)+valence(B)=6. (A = Li,Na, K, Rb, Cs, Cu, Ag, Au, Be, Mg, Ca, Sr, Ba, Pb, Zn, Cd, Sn, Sc,Y, La, Bi; B = P, As, Sb, V,  Nb, Ta, Si, Ge, Sn, Ti, Zr, Hf, Al, Ga, In, Tl; X = O). Considering the structural flexibility of perovskites, four possible crystal structures with crystal symmetry $Pm\bar{3}m$, $I4_mmm$, P63/mmc and $Pnma$ (needle-like) as shown in Fig.~\ref{fig1} are considered for each compound.
 
-We did high-through calculation for intrinsic perovskite with a data set comprising compounds which were generated by performing full DFT relaxation and non self-consistent calculations on all combinations of allowed species(Supplementary Table ..) on the A and B site, as shown in Fig.~\ref{fig2}.  It indicated that the valence band maximum (VBM) position falls approximately 1 eV from PBEsol functional to the hybrid functional. Among the selected compounds, the only place perform poorly is in the family of Cu, Pb, Sn, with $d$ orbitals involved in the electronic configuration of A site, which leads to higher $d$ orbital energy than oxigen 2p orbital and pushes the VBM positions up. However, the error in this case is still only \%20 with a predicted value.  
+We did high-through calculation for intrinsic perovskite with a data set comprising compounds which were generated by performing full DFT relaxation and non self-consistent calculations on all combinations of allowed species(Supplementary Table ..) on the A and B site, as shown in Fig.~\ref{fig2}. To calculate the band alignment between these two functional, the care should be taken to avoid charge transfer between the two interfaces in the slab due to the spontaneous polarization along the out-of-plane direction for the $c$ and $d$ structures. To overcome this problem, we assume that the averaged electrostatic potential only depends on the volume, so that we can compare the eigenvalues with these two functional calculation based on the same structure after the full DFT relaxation.  
+It indicated that the valence band maximum (VBM) position falls approximately 1 eV from PBEsol functional to the hybrid functional. For the perovskite oxides materials, the valence band maximum is contributed by the oxygen 2$p$ orbitals, therefore, the VBM correction is mainly from the oxgen energy correction.
+Among the selected compounds, the only place perform poorly is in the family of Cu, Pb, Sn, with $d$ orbitals involved in the electronic configuration of A site, which leads to higher $d$ orbital energy than oxigen 2p orbital and pushes the VBM positions up. However, the error in this case is still only \%20 with a predicted value.   
 % and TL as B site with VBM falls larger than -0.75 eV.
 
 % However, the error in this case is still only \%20 with a predicted value. The deviation for VBM is not surprising considering that Cu, Pb and Sn family have higher d orbital energy than oxigen 2p orbital.
@@ -168,7 +185,7 @@ We did high-through calculation for intrinsic perovskite with a data set compris
 
 % This machine learning algorithm shows that we can predict HSE06 functional band gaps trained using the E$_{gPBE}$ values. 
 
-Previous theoretical calculations revealed that the lattice distortion does not significantly impact the electronic and optical properties of the halide perovskite, but B-X bond breaking with face-shared or line-shared octahedral can destroy the unique properties of perovskites.
+% Previous theoretical calculations revealed that the lattice distortion does not significantly impact the electronic and optical properties of the halide perovskite, but B-X bond breaking with face-shared or line-shared octahedral can destroy the unique properties of perovskites.
 
 % Fig 2. Indicating that the VBM position falls approximately -1 eV from PBEsol functional and the hybrid functional. Among the selected compounds, the only place perform poorly is in the family of Cu, Pb, Sn as A site and TL as B site with VBM falls larger than -0.75 eV.
 % However, the error in this case is still only \%20 with a predicted value. The deviation for VBM is not surprising considering that Cu, Pb and Sn family have higher d orbital energy than oxigen 2p orbital. 
@@ -233,18 +250,18 @@ This work was supported by the National Science Foundation Faculty Early Career 
 
 \end{document}
 
-\begin{figure*}[ht!]
-\begin{center}
-\includegraphics[width=6.0in]{Figures/Fig3.eps}
-\end{center}
-\caption{ (a) the correlation functional relationship between the equatorial and apical bond angle in the orthorhombic structure (space group $Pnma$).
-(b) The DFT band gap of the tetragonal structure (space group $I4_mmm$) as a function of the apical B-O-B bond angles. 
-(c) Two-dimensional map of the DFT band gap of the orthorhombic structure as a function of the apical B-O-B bond angles. 
-(e) The map of the DFT band gap difference between cubic structure and tetragonal structure. 
-(e) The map of the DFT band gap difference between cubic structure and orthorhombic structure. 
-}
-\label{fig4}
-\end{figure*}
+% \begin{figure*}[ht!]
+% \begin{center}
+% \includegraphics[width=6.0in]{Figures/Fig3.eps}
+% \end{center}
+% \caption{ (a) the correlation functional relationship between the equatorial and apical bond angle in the orthorhombic structure (space group $Pnma$).
+% (b) The DFT band gap of the tetragonal structure (space group $I4_mmm$) as a function of the apical B-O-B bond angles. 
+% (c) Two-dimensional map of the DFT band gap of the orthorhombic structure as a function of the apical B-O-B bond angles. 
+% (e) The map of the DFT band gap difference between cubic structure and tetragonal structure. 
+% (e) The map of the DFT band gap difference between cubic structure and orthorhombic structure. 
+% }
+% \label{fig4}
+% \end{figure*}
 
 % Fig 3. (a) is the map between the apical bond angle and equatorial bond angle in the $Pnma$ structure. It shows a linear function with apical bond angle $\approx$ equatorial bond angle, which is a correction() for the ref\cite{} investigation. 
 
